@@ -6,6 +6,7 @@ Fridge API Repo for the Viseo BBL Demo
 ### Setup
 ```
 npm install -g pm2
+npm install
 bash start.sh
 ```
 
