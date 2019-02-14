@@ -32,3 +32,12 @@ bash start.sh
 	promotion: true,
 }
 ```
+
+### *[PUT]* /flavour/chocolate
+#### Updates info
+```
+{
+	available: false,
+	promotion: true,
+}
+```

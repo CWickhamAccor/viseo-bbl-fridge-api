@@ -1,17 +1,20 @@
-function getFullFlavourInfo() {
+const { getFlavourSingleton } = require('./flavourSingleton');
+const flavourSingleton = getFlavourSingleton();
 
-}
-
-function getFlavourInfo(flavour) {
-
-}
-
-function flavourService(req, res) {
+function getFlavourService(req, res) {
     const flavour = req.params.flavour;
-    const result = flavour ? getFlavourInfo(flavour) : getFullFlavourInfo();
+    const result = flavour ? flavourSingleton.get(flavour) : flavourSingleton.value;
     res.json(result);
 }
 
+function updateFlavourService(req, res) {
+    const key = req.params.flavour;
+    const data = req.body;
+    flavourSingleton.update(key, data);
+    res.json("OK");
+}
+
 module.exports = {
-    flavourService,
+    getFlavourService,
+    updateFlavourService,
 };
